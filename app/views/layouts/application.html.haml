@@ -14,6 +14,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Recipe", new_recipe_path
         %li= link_to "Sign Out", root_path
+  
   .container
     -flash.each do |name, msg|
       =content_tag :div, msg, class: "alert"

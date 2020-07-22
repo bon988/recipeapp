@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_134345) do
+ActiveRecord::Schema.define(version: 2020_07_22_195534) do
+
+  create_table "ingredients", force: :cascade do |t|
+    t.text "content"
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string "title"
@@ -20,4 +28,14 @@ ActiveRecord::Schema.define(version: 2020_07_21_134345) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.text "direction"
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_steps_on_recipe_id"
+  end
+
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "steps", "recipes"
 end

@@ -14,7 +14,8 @@ gem 'faraday'
 gem 'haml', '~> 5.1', '>= 5.1.2'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-
+gem 'paperclip', '~> 6.1'
+gem 'nested_form_fields', '~> 0.8.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

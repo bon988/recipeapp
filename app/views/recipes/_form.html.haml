@@ -7,7 +7,18 @@
             %ul
                 - @recipe.errors.full_messages.each do |msg|
                     %li = msg
-    .panel-body
+    .panel-body 
         = f.input :title, input_html: { class: 'form-control'}
         = f.input :description, input_html: { class: 'form-control'}
+    
+        .row
+            .col-md-6
+                %h4 Ingredients
+                #ingredients
+                = f.nested_fields_for :ingredients do |ingredient|
+                    = ingredient.text_field :content 
+                    = ingredient.remove_nested_fields_link 
+                .links
+                = f.add_nested_fields_link :ingredients, 'Add Ingredient', class: "btn btn-default add-button"
+    
     = f.button :submit, class: "btn btn-primary"

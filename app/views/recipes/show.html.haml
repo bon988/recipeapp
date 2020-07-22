@@ -1,5 +1,19 @@
-%h1= @recipe.title
-%p= @recipe.description 
+.main_content
+    #recipe_top.row
+        .col-md-8
+            #recipe_info
+                %h2= @recipe.title
+                %p.description= @recipe.description 
+    
+    .row
+        .col-md-6
+            #ingredients
+                %h4 Ingredients
+                %ul
+                    -@recipe.ingredients.each do |ingredient|
+                        %li= ingredient.content
+
+
 
 = link_to "Back", root_path, class: "btn btn-default"
 = link_to "Edit", edit_recipe_path, class: "btn btn-default"
