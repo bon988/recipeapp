@@ -9,8 +9,9 @@
                     %li = msg
     .panel-body 
         = f.input :title, input_html: { class: 'form-control'}
+        %br/
         = f.input :description, input_html: { class: 'form-control'}
-    
+        %br/
         .row
             .col-md-6
                 %h4 Ingredients
@@ -20,5 +21,16 @@
                     = ingredient.remove_nested_fields_link 
                 .links
                 = f.add_nested_fields_link :ingredients, 'Add Ingredient', class: "btn btn-default add-button"
+        %br/
+        .row
+            .col-md-6
+                %h4 Method
+                #steps
+                = f.nested_fields_for :steps do |step|
+                    = step.text_field :direction
+                    = step.remove_nested_fields_link
+                .links
+                = f.add_nested_fields_link :steps, 'Add Step', class: "btn btn-default add-button"
     
-    = f.button :submit, class: "btn btn-primary"
+        %br/
+        = f.button :submit, class: "btn btn-primary"

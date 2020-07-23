@@ -13,8 +13,15 @@
                     -@recipe.ingredients.each do |ingredient|
                         %li= ingredient.content
 
-
-
-= link_to "Back", root_path, class: "btn btn-default"
-= link_to "Edit", edit_recipe_path, class: "btn btn-default"
-= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn, btn-default"
+    .row
+        .col-md-6
+            #steps
+                %h4 Method
+                %ol
+                    -@recipe.steps.each do |step|
+                        %li= step.direction
+.row
+    .col-md-12
+        = link_to "Back", root_path, class: "btn btn-default"
+        = link_to "Edit", edit_recipe_path, class: "btn btn-default"
+        = link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
