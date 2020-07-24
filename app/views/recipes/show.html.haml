@@ -1,24 +1,26 @@
 .main_content
     #recipe_top.row
+        .col-md-4
+          
+                
         .col-md-8
             #recipe_info
-                %h2= @recipe.title
+                %h2= @recipe.title 
                 %p.description= @recipe.description 
     
     .row
         .col-md-6
             #ingredients
-                %h4 Ingredients
+                %h3 Ingredients
                 %ul
-                    -@recipe.ingredients.each do |ingredient|
+                    - @recipe.ingredients.each do |ingredient|
                         %li= ingredient.content
-
-    .row
-        .col-md-6
+    
+        .col-md-6 
             #steps
-                %h4 Method
+                %h3 Method
                 %ol
-                    -@recipe.steps.each do |step|
+                    - @recipe.steps.each do |step|
                         %li= step.direction
 .row
     .col-md-12

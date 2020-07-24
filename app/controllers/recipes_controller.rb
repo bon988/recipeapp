@@ -18,9 +18,11 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new
     end
     
-    
+    # POST /recipes
+    # POST /recipes.json
     def create
         @recipe = Recipe.new(recipe_params)
+        
         if @recipe.save
             redirect_to @recipe, notice: "Successfully created new recipe"
         else
@@ -47,11 +49,6 @@ class RecipesController < ApplicationController
     end
     
     private
-    #For each recipe, we need to find a recipe
-    #Use callbacks to share ommon setup or constraints between actions
-    def find_recipe
-        @recipe = Recipe.find(params[:id])
-    end
     
     #Parameter method 
     #To only allow the white list through
@@ -60,4 +57,13 @@ class RecipesController < ApplicationController
         ingredients_attributes:[:id, :content, :_destroy], 
         steps_attributes:[:id, :direction, :_destroy]) 
     end
+    
+    #For each recipe, we need to find a recipe
+    #Use callbacks to share common setup or constraints between actions
+    def find_recipe
+        @recipe = Recipe.find(params[:id])
+    end
+    
+
 end
+
