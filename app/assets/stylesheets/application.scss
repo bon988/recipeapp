@@ -22,7 +22,7 @@
 	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 }
 
-$green: #272928;
+$green: #212623;
 
 body {
 	background: white;
@@ -46,7 +46,7 @@ body {
 	margin-bottom: 40px;
 	@include box-shadow;
 	border: none;
-	background: #f2f2f2;
+	background: #f5f5f5;
 	.navbar-brand {
 		text-transform: uppercase;
 		letter-spacing: -1px;
@@ -76,11 +76,15 @@ body {
 }
 
 #recipe_top {
+	background: #e8ebe9;
 	margin-bottom: 50px;
+	@include box-shadow;
+	min-height: 360px;
+	padding: 2em 8%;
 }
 
 #recipe_info, #ingredients, #steps {
-	background: #fcf3eb;
+	background: #fcfcfc;
 	@include box-shadow;
 	min-height: 360px;
 	border-radius: 10px;
@@ -127,11 +131,12 @@ body {
 }
 
 .btn-default {
-	background: #bd3c87;
+	background: #f59c3d;
 	color: white;
+	border: none;
 }
 
 .btn-primary{
-	background: #377870;
+	background: #2f64ad;
 }
 

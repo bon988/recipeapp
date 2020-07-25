@@ -1,0 +1,52 @@
+<div class="main_content">
+  <div class="row" id="recipe_top">
+    <div class="col-md-6">
+        <div style="width:450px; height: auto">
+            <%= image_tag(@recipe.image, style:'width:100%') %>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div id="recipe_info">
+        <h2>
+          <%= @recipe.title  %>
+        </h2>
+        <p class="description">
+          <%= @recipe.description  %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.content %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="steps">
+        <h2>Method</h2>
+        <ol>
+          <% @recipe.steps.each do |step| %>
+            <li>
+              <%= step.direction %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to "Back", root_path, class: "btn btn-default" %>
+    <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
+    <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+  </div>
+</div>

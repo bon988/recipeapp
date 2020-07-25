@@ -27,6 +27,9 @@ Rails.application.configure do
   end
 
   config.hosts << "594eff7a1e014759a6026c08766c26ce.vfs.cloud9.us-east-1.amazonaws.com"
+  
+  config.active_storage.service= :local
+  
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
