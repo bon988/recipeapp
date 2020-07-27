@@ -1,9 +1,11 @@
 <div class="main_content">
   <div class="row" id="recipe_top">
     <div class="col-md-6">
-        <div style="width:450px; height: auto">
-            <%= image_tag(@recipe.image, style:'width:100%') %>
-        </div>
+      <div style="width:450px; height: auto">
+        <% if @recipe.image.attached? %>
+          <%= image_tag(@recipe.image, class: "recipe_image") %>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-6">
       <div id="recipe_info">

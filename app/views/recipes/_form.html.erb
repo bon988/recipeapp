@@ -21,9 +21,16 @@
     <br/>
     
     <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+      <%= f.label :image %>
+      <div style="width:100px; height: auto">
+        <% if @recipe.image.attached? %>
+          <%= image_tag(@recipe.image, class: "recipe_image")%>
+          <%= check_box_tag :remove_image %>Remove
+        <% end %>
+      </div>
+      </div>
+        <%= f.file_field :image %>
+    </div>
     
     <div class="row">
       <div class="col-md-6">

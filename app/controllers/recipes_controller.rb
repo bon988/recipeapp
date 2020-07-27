@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
     # POST /recipes/1
     def update
         if @recipe.update(recipe_params)
-            redirect_to @recipe
+            redirect_to @recipe, notice: "Successfully updated recipe"
         else
             render 'edit'
         end
@@ -48,6 +48,7 @@ class RecipesController < ApplicationController
         redirect_to root_path, notice: "Successfully deleted recipe"
     end
     
+    
     private
     #For each recipe, we need to find a recipe
     #Use callbacks to share common setup or constraints between actions
@@ -58,8 +59,7 @@ class RecipesController < ApplicationController
     #Parameter method 
     #To only allow the white list through
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :image, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy]) 
+        params.require(:recipe).permit(:title, :description, :image, :remove_image, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy]) 
     end
 
 end
-
