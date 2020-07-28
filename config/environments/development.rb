@@ -28,6 +28,9 @@ Rails.application.configure do
 
   config.hosts << "594eff7a1e014759a6026c08766c26ce.vfs.cloud9.us-east-1.amazonaws.com"
   
+  #As Required for Devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   config.active_storage.service= :cloudinary
   
   # Don't care if the mailer can't send.

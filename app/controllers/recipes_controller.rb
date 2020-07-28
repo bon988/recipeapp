@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
     #only want this on the show, edit, update and destroy 
     before_action :find_recipe, only: [:show, :edit, :update, :destroy]  
+    #to authenticate all pages except show and index page
+    before_action :authenticate_user!, except: [:index, :show]
     
     #GET /recipes
     #GET /recipes.json
@@ -15,13 +17,13 @@ class RecipesController < ApplicationController
     
     #GET /recipes/new
     def new
-        @recipe = Recipe.new
+        @recipe = current_user.recipes.build
     end
     
     # POST /recipes
     # POST /recipes.json
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = current_user.recipes.build(recipe_params)
         if @recipe.save
             redirect_to @recipe, notice: "Successfully created new recipe"
         else
