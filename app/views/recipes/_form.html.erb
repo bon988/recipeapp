@@ -1,17 +1,9 @@
 <%= simple_form_for @recipe, html: {multipart: true} do |f|  %>
   <% if @recipe.errors.any? %>
     <div id="errors">
-      <p>
-        <%= @recipe.errors.count %>
-        Prevented this recipe froms saving
-      </p>
-      <ul>
         <% @recipe.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
+          <div class="alert alert-danger"><%= msg %></div>
         <% end %>
-      </ul>
     </div>
   <% end %>
   <div class="panel-body">

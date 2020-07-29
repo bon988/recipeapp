@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+    #validation for image, ingredients and steps. All are required - set to true
+    validates :image, :ingredients, :steps, presence: true
+    
     #a recipe belongs to user
     belongs_to :user
     #allows only one image upload
