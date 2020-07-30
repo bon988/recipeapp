@@ -7,12 +7,12 @@ local:
   
 cloudinary:
   service: Cloudinary
-  cloud_name: ""
   api_key: ""
-  api_secret: ""
+  api_secret: 
+  cloud_name: 
   enhance_image_tag: true
-  static_file_support: false
   public: true
+  static_file_support: false
   
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
@@ -36,4 +36,4 @@ cloudinary:
 # mirror:
 #   service: Mirror
 #   primary: local
-#   mirrors: [ amazon, google, microsoft ]cloudinary:      
+#   mirrors: [ amazon, google, microsoft ]cloudinary:   

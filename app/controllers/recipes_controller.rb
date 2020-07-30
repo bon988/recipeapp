@@ -55,6 +55,7 @@ class RecipesController < ApplicationController
         redirect_to root_path, notice: "Successfully deleted recipe"
     end
     
+
     private
     #For each recipe, we need to find a recipe
     #Use callbacks to share common setup or constraints between actions
@@ -67,4 +68,5 @@ class RecipesController < ApplicationController
     def recipe_params
         params.require(:recipe).permit(:title, :description, :image, :remove_image, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy]) 
     end
+
 end
