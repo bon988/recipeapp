@@ -7,9 +7,9 @@ local:
   
 cloudinary:
   service: Cloudinary
-  api_key: ""
-  api_secret: 
-  cloud_name: 
+  api_key: "699731435312553"
+  api_secret: 8f5TO8Z68QKJxva5hkErDl1cOOI
+  cloud_name: recipeapp123
   enhance_image_tag: true
   public: true
   static_file_support: false
