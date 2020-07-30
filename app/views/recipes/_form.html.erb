@@ -1,0 +1,53 @@
+<%= simple_form_for @recipe, html: {multipart: true} do |f|  %>
+  <% if @recipe.errors.any? %>
+    <div id="errors">
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    </div>
+  <% end %>
+  <div class="panel-body">
+    <%= f.input :title, input_html: { class: 'form-control'} %>
+    <br/>
+    <%= f.input :description, input_html: { class: 'form-control'} %>
+    <br/>
+    
+    <div class="field">
+      <%= f.label :image %>
+      <div style="width:100px; height: auto">
+        <% if @recipe.image.attached? %>
+          <%= image_tag(@recipe.image, class: "recipe_image")%>
+          <%= check_box_tag :remove_image %>Remove
+        <% end %>
+      </div>
+      </div>
+        <%= f.file_field :image %>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Ingredients</h4>
+        <div id="ingredients">
+          <%= f.nested_fields_for :ingredients do |ingredient| %>
+            <%= ingredient.text_field :content  %>
+            <%= ingredient.remove_nested_fields_link %>
+          <% end %>
+          <div class="links"></div>
+          <%= f.add_nested_fields_link :ingredients, 'Add Ingredient', class: "btn btn-default add-button" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Method</h4>
+        <div id="steps">
+          <%= f.nested_fields_for :steps do |step| %>
+            <%= step.text_field :direction %>
+            <%= step.remove_nested_fields_link %>
+          <% end %>
+          <div class="links"></div>
+          <%= f.add_nested_fields_link :steps, 'Add Step', class: "btn btn-default add-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

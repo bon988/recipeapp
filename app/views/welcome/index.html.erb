@@ -1,0 +1,80 @@
+<h2>Welcome to Recipe App</h2>
+<p>Create your own recipe or find the perfect recipe ideas for every ocassion, from weeknight dinners to holiday feasts.</p>
+</br>
+
+<!--Thumnails Images -->
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("https://www.supermarketperimeter.com/ext/resources/0521-Cooking.jpg?1590073666", 
+      alt:"placeholder image 1", 
+      class: "img-responsive",
+      data: { toggle: "modal", target: "#myModal" }), 
+      "#myGallery", data: { slide_to: "0"} %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("https://i.picsum.photos/id/490/5774/3818.jpg?hmac=3kA85HNo1-aJuE_QZRa16_rxaBIf-MwXovXfUa0elHw", 
+      alt:"placeholder image 2", 
+      class: "img-responsive",
+      data: { toggle: "modal", target: "#myModal" }),
+      "#myGallery", data: { slide_to: "1"} %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("https://i.picsum.photos/id/292/3852/2556.jpg?hmac=cPYEh0I48Xpek2DPFLxTBhlZnKVhQCJsbprR-Awl9lo", 
+      alt:"placeholder image 3", 
+      class: "img-responsive",
+      data: { toggle: "modal", target: "#myModal" }),
+      "#myGallery", data: { slide_to: "2"} %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("https://i.picsum.photos/id/517/5184/3456.jpg?hmac=O6qtgVzmu-iPtTOLgMQSQiUbsXNCjzDhI5FVjNufug0", 
+      alt:"placeholder image 4", 
+      class: "img-responsive", 
+      data: { toggle: "modal", target: "#myModal" }),
+      "#myGallery", data: { slide_to: "3"} %>
+    </div>
+  
+    
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <div class="pull-left"></div>
+              <button type="button" class="close" data-dismiss="modal" title="Close">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+          </div>
+          
+    <div class="modal-body">
+      <!--CAROUSEL -->
+      <div id="myGallery" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <!--Carousel items -->
+          <div class="item active">
+            <%= link_to image_tag("https://www.supermarketperimeter.com/ext/resources/0521-Cooking.jpg?1590073666", alt:"placeholder image 1", class: "img-responsive") %>
+          </div>
+          <div class="item">
+            <%= link_to image_tag("https://i.picsum.photos/id/490/5774/3818.jpg?hmac=3kA85HNo1-aJuE_QZRa16_rxaBIf-MwXovXfUa0elHw", alt:"placeholder image 2", class: "img-responsive") %>
+          </div>
+          <div class="item">
+            <%= link_to image_tag("https://i.picsum.photos/id/292/3852/2556.jpg?hmac=cPYEh0I48Xpek2DPFLxTBhlZnKVhQCJsbprR-Awl9lo", alt:"placeholder image 3", class: "img-responsive") %>
+          </div>
+          <div class="item">
+            <%= link_to image_tag("https://i.picsum.photos/id/517/5184/3456.jpg?hmac=O6qtgVzmu-iPtTOLgMQSQiUbsXNCjzDhI5FVjNufug0", alt:"placeholder image 4", class: "img-responsive") %>
+          </div>
+        </div><!--end carousel-inner-->
+
+        <!--Begin Previous and Next buttons-->
+        <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div><!--end carousel-->
+    </div><!--end modal-body-->
+  
+      <div class="modal-footer">
+        <div class="pull-left"></div>
+          <button class="btn-sm close" type="button" data-dismiss="modal">Close</button>
+      </div><!--end modal-footer-->
+    </div><!--end modal-content-->
+  </div><!--end modal-dialoge-->
+</div><!--end myModal-->

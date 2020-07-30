@@ -1,0 +1,60 @@
+<div class="main_content">
+  <div class="row" id="recipe_top">
+    <div class="col-md-6">
+      <div style="width:450px; height: auto">
+        <% if @recipe.image.attached? %>
+          <%= image_tag(@recipe.image, class: "recipe_image") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="recipe_info">
+        <h2>
+          <%= @recipe.title  %>
+        </h2>
+        <p class="description">
+          <%= @recipe.description  %>
+        </p>
+        <p>
+          Submitted by <%= @recipe.user.email %> 
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.content %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="steps">
+        <h2>Method</h2>
+        <ol>
+          <% @recipe.steps.each do |step| %>
+            <li>
+              <%= step.direction %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to "Back", root_path, class: "btn btn-default" %>
+    <!-- only visiable to signed in users who match the recipe user id in order to edit and delete a recipe-->
+    <% if current_user == @recipe.user %>
+      <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
+      <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
