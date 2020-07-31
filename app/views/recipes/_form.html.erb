@@ -14,9 +14,9 @@
     
     <div class="field">
       <%= f.label :image %>
-      <div style="width:100px; height: auto">
+      <div style="width: 290px; height: auto">
         <% if @recipe.image.attached? %>
-          <%= image_tag(@recipe.image, class: "recipe_image")%>
+          <%= image_tag(@recipe.image, class: "recipe_image", style:'width:100%')%>
           <%= check_box_tag :remove_image %>Remove
         <% end %>
       </div>
@@ -48,6 +48,7 @@
         </div>
       </div>
     </div>
-  </div>
-  <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+  </div>
+
