@@ -1,8 +1,15 @@
+<!-- views/recipes/index.html.erb -->
+<!-- Each iterator method -  to loop through all the recipes pulled through in 
+the @recipe variable and assigned as a variable named 'recipe'. 
+The link_to method contains 2 parameters - the first parameter('recipe.title') 
+is the text to display and the second ('recipe') when the link is clicked. -->
 <% @recipe.each do |recipe| %>
   <h2>
     <%= link_to recipe.title, recipe, class: "recipe-info" %>
   </h2>
 <% end %>
+ <!-- only visiable to signed in users who match the recipe user id in order to edit and delete a recipe-->
+    
 
 
 

@@ -4,7 +4,7 @@ test:
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
-  
+#cloudinary - image and media storage management api used to store users recipe image uploads   
 cloudinary:
   service: Cloudinary
   api_key: ""

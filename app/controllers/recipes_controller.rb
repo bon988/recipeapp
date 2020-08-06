@@ -4,24 +4,24 @@ class RecipesController < ApplicationController
     #to authenticate all pages except show and index page
     before_action :authenticate_user!, except: [:index, :show]
     
-    #GET /recipes
-    #GET /recipes.json
+    # GET /recipes
+    # GET /recipes.json
     def index
         @recipe = Recipe.all.order("created_at DESC")
     end
     
-    #GET /recipes/1
-    #GET/recipes/1/json
+    # GET /recipes/1
+     # GET /recipes/1.json
     def show
     end
     
-    #GET /recipes/new
+    # GET /recipes/new
     def new
         @recipe = current_user.recipes.build
     end
     
-    # POST /recipes
-    # POST /recipes.json
+     # POST /recipes
+     # POST /recipes.json
     def create
         @recipe = current_user.recipes.build(recipe_params)
         
@@ -33,6 +33,7 @@ class RecipesController < ApplicationController
     end
     
     # POST /recipes/1
+    # PATCH/PUT /recipes/1.json
     def update
         if @recipe.update(recipe_params)
             redirect_to @recipe, notice: "Successfully updated recipe"
@@ -41,15 +42,15 @@ class RecipesController < ApplicationController
         end
     end
     
-    #GET /recipes/1/edit
-    #To permit only users who created a recipe to edit and delete it
+    # GET /recipes/1/edit
     def edit
-        unless current_user == @recipe.user
+        unless current_user == @recipe.user  #To permit only users who created a recipe to edit and delete it
         redirect_back fallback_location: root_path, notice: 'User is not owner'
         end
     end
     
-    #DELETE /recipes/1
+    # DELETE /recipes/1
+    # DELETE /recipes/1.json
     def destroy
         @recipe.destroy
         redirect_to root_path, notice: "Successfully deleted recipe"
@@ -57,14 +58,13 @@ class RecipesController < ApplicationController
     
 
     private
-    #For each recipe, we need to find a recipe
     #Use callbacks to share common setup or constraints between actions
+    
     def find_recipe
         @recipe = Recipe.find(params[:id])
     end
     
-    #Parameter method 
-    #To only allow the white list through
+    # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
         params.require(:recipe).permit(:title, :description, :image, :remove_image, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy]) 
     end

@@ -1,20 +1,30 @@
+<!-- recipes.show.html.erb -->
+<!--shows full recipe post -->
+
 <div class="main_content">
   <div class="row" id="recipe_top">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <% if @recipe.image.attached? %>
           <%= image_tag(@recipe.image,class: "recipe_image") %>
         <% end %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div id="recipe_info">
         <h2>
-          <%= @recipe.title  %>
+          <%= @recipe.title %>
         </h2>
         <p class="description">
-          <%= @recipe.description  %>
+          <%= @recipe.description %>
         </p>
         <p>
-          Submitted by <%= @recipe.user.email %> 
+          Submitted by <%= @recipe.user.email %>
+          </br>
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+          class="twitter-share-button" 
+          data-show-count="false">Tweet</a>
+          <script async src="https://platform.twitter.com/widgets.js" 
+          charset="utf-8">
+          </script>
         </p>
       </div>
     </div>

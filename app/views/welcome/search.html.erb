@@ -1,0 +1,27 @@
+<!-- app/views/welcome/search.html.erb -->
+<!--Shows the 'Search Recipe' endpoint API results -->
+<!-- To show the API data -->
+<!--Targeting the '@recipesearch' array. API response body fields are passed 
+in an array, for example, data from the "readyinMinutes" API field is passed
+in array as [readyinMinutes']- format as specified in the API documentation-->
+
+<div class="recipe-apiviews">
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <h4>Recipe for you:</h4>
+      <dl>
+        <dt>Recipe Title:</dt>
+        <dd><%= @recipesearch['title'] %></dd>
+        
+        <dt>Ready in:</dt>
+        <dd><%= @recipesearch['readyinMinutes'] %></dd>
+        
+        <dt>Servings:</dt>
+        <dd><%= @recipesearch['servings'] %></dd>
+        
+        <dd><%= @recipesearch['image'] %></dd>
+      </dl>
+    </div><!--end of col-->
+  </div><!--end of row -->
+</div><!--end of recipe-apiviews -->
+   
