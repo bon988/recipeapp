@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require activestorage
-//= require jquery
+//require jquery
 //= require bootstrap
-//= require jquery_ujs
+//require jquery_ujs
 //= require nested_form_fields
 //= require_tree .
 
