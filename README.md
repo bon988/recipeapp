@@ -1,24 +1,21 @@
-# README
+RECIPEAPP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web application for cooking enthusiasts which will allow them to easily 
+create and save their recipes, search for and browse through new recipes for 
+ideas to plan out their meals. 
 
-Things you may want to cover:
+It is a user friendly and responsive web application. 
 
-* Ruby version
+The app allows users to perform Create, Read, Update and Delete (CRUD) 
+operations on the data. 
 
-* System dependencies
+Technologies used to build the app is Ruby on Rails, Bootstrap, React, JQuery 
 
-* Configuration
 
-* Database creation
+* Ruby version - 6.0.3.2
 
-* Database initialization
+* Database initialization - SQlite3
 
-* How to run the test suite
+* Services - Cloudinary Storage API and RAPIDAPI Spoonacular-Recipe-Food-Nutrition API
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...

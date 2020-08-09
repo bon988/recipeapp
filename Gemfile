@@ -20,6 +20,8 @@ gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.2'
 gem 'excon', '~> 0.54.0'
+gem 'fast_jsonapi'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
